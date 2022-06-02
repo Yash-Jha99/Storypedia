@@ -1,0 +1,109 @@
+
+body{
+  margin:0;
+  background-color:whitesmoke;
+  color: black;
+}
+
+ul {
+  display: inline-flex;
+  list-style-type: none;
+  width: 100%;
+  background-color:limegreen;
+  margin: 0px;
+  padding: 5px 40px;
+}
+
+li a {
+  position: sticky;
+  color: black;
+  text-align: center;
+  padding: 0px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight:700;
+  align-content: flex-end;
+}
+
+li a:hover {
+  color:orangered;
+}
+
+.active {
+  text-decoration:underline;
+  color:crimson;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.News{
+  width: 320px;
+  height: 300px;
+  margin: 8px;
+  box-shadow: 0.5px 4px 6px rgba(0,0,0,0.4);
+  background-color:white
+}
+
+.NewsImg{
+  width:100%
+}
+
+.NewsInfo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 1rem;
+  letter-spacing: 0.5px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.OtherInfo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem 1rem;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+  bottom: 2px;
+  font-weight: 500;
+}
+
+.link{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+ font-weight: 600;
+  padding: 5rem 1rem 1rem;
+  color:blue;
+
+}
+
+.Homepage{
+  font-size: 40px;
+  color: black;
+}
+
+.logo
+{
+  align-content: flex-start;
+  font-size: 28px;
+  padding-right: 200px;
+  font-weight: 900;
+  color: #000;
+}
+
+.Navbar{
+  align-content: center;
+  padding: 5px;
+  align-content: flex-end;
+}
+
+
+
