@@ -29,10 +29,14 @@ function getStory_detail(url)
             comment=data.kids.length
             else
             comment=0
-          storyEl.innerHTML=`
-          <div class="NewsInfo" id="News">${data.title}</div>
-          <div ><a class="link" href=${data.url}>Read More...</a></div>
-          <div class="OtherInfo">By: ${data.by.toUpperCase()}<span class>Comments: ${comment}</span></div>`
+            storyEl.innerHTML = `    
+            <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">${data.title}</h4>
+              <a href="${data.url}" class="card-link">Read More...</a>
+              <h6 class="card-subtitle mb-2"><span>By: ${data.by.toUpperCase()}</span><span>Comments: ${comment}</span></h6>
+            </div>
+            </div>`
           main.appendChild(storyEl)
           
         })
