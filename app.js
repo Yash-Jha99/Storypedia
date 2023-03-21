@@ -1,21 +1,20 @@
 var createError = require('http-errors');
-var express = require('express'); 
+var express = require('express');
 var path = require('path');
-const fetch=require('node-fetch')
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var TopStoriesRouter=require('./routes/TopStories')
-var BestStoriesRouter=require('./routes/BestStories')
-var NewStoriesRouter=require('./routes/NewStories')
+var TopStoriesRouter = require('./routes/TopStories')
+var BestStoriesRouter = require('./routes/BestStories')
+var NewStoriesRouter = require('./routes/NewStories')
 
 var app = express();
 
-const PORT = process.env.PORT ||5000;
- 
+const PORT = process.env.PORT || 5000;
+
 // Executing the server on given port number
 app.listen(PORT, console.log(
   `Server started on port ${PORT}`));
@@ -37,12 +36,12 @@ app.use('/BestStories', BestStoriesRouter);
 app.use('/NewStories', NewStoriesRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

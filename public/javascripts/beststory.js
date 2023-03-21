@@ -1,35 +1,35 @@
+
 const BASE_URL = "https://hacker-news.firebaseio.com/v0/"
 const Id_url = BASE_URL + "beststories.json"
 
-const main=document.getElementById('main')
+const main = document.getElementById('main')
+const showMore = document.getElementById('showMore')
+let currentPage = 1
 
-const Stories_url=[]
-  
-getStory_url(Id_url)
+showMore.addEventListener("click", () => {
+  getStory_url(Id_url, ++currentPage)
+})
 
-function getStory_url(url)
-{
-    
-  fetch(url).then(res => res.json()).then(json => {
-    json.forEach(element => {
-    Stories_url.push(BASE_URL + "item/" + element + ".json")
-    })
-    getStory_detail(Stories_url)
-    })
+async function getStory_url(url, currentPage = 1) {
+  const result = await (await fetch(url)).json()
+  const storiesUrl = result.map(item => BASE_URL + "item/" + item + ".json")
+  const index = currentPage * 1 - 1
+  storiesUrl.slice(index, index + 12).forEach(url => getStory_detail(url))
+  if (currentPage === 1)
+    setTimeout(() => {
+      showMore.style.visibility = "visible"
+    }, 500)
 }
 
-function getStory_detail(url)
-{
-  main.innerHTML='';
-    url.forEach(news=>{
-        fetch(news).then(res => res.json()).then(data => {
-          const storyEl=document.createElement('div')
-          storyEl.classList.add('News')
-          if('kids' in data)
-            comment=data.kids.length
-            else
-            comment=0
-          storyEl.innerHTML = `    
+async function getStory_detail(url) {
+  const data = await (await fetch(url)).json()
+  const storyEl = document.createElement('div')
+  storyEl.classList.add('News')
+  if ('kids' in data)
+    comment = data.kids.length
+  else
+    comment = 0
+  storyEl.innerHTML = `    
             <div class="card">
             <div class="card-body">
               <h4 class="card-title">${data.title}</h4>
@@ -37,8 +37,9 @@ function getStory_detail(url)
               <h6 class="card-subtitle mb-2"><span>By: ${data.by.toUpperCase()}</span><span>Comments: ${comment}</span></h6>
             </div>
             </div>`
-          main.appendChild(storyEl)
-          
-        })
-    })
+  main.appendChild(storyEl)
 }
+
+getStory_url(Id_url)
+
+
