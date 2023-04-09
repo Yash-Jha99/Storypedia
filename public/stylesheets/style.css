@@ -2,7 +2,7 @@
   font-size: 24px;
   font-family: "Pacifico", cursive;
   color: white;
-  margin-right: 250px;
+  margin-right: 40px;
   margin-left: 20px;
 }
 
@@ -10,7 +10,7 @@
   font-weight: 600;
   font-size: 20px;
   color: white;
-  margin: 0 15px;
+  margin: 0 10px;
 }
 
 .nav-link:hover {
@@ -42,7 +42,7 @@ main {
   width: 20rem;
   margin: 8px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
-  background-color: #786fa6;
+  background-color: white;
 }
 
 .card-title {
@@ -57,24 +57,28 @@ main {
   margin-top: 2rem;
 }
 .card-link {
-  color: black;
   font-style: italic;
   text-decoration: none;
   font-weight: 500;
 }
 
-.Homepage {
+.homepage {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   flex-direction: column;
   font-size: 40px;
-  color: white;
-  background-color: #2f3640;
+  padding: 30px;
 }
 
 .footer {
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    width: 90vw;
+  }
 }
